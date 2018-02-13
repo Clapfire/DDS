@@ -12,3 +12,5 @@
 start_gui
 open_project {C:/Users/zeid/Desktop/DDS/DDS/Assignment 1/Assignment 1/Assignment 1.xpr}
 update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1

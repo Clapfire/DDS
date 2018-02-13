@@ -51,10 +51,12 @@ Begin
     for i in 0 to 7 loop
         vsum(i) := (A(i) xor B(i)) xor carry;
         carry := A(i) and B(i);
-    end loop
+    end loop;
+    
+    Carryout <= carry;
+       Sum <= vsum;
 end Process;
 
-   Carryout <= carry;
-   Sum <= vsum;
+   
    
 end Behavioral;
