@@ -5,7 +5,7 @@
 
 !*.vhd
 !*.gitignore
-!Assignment\ 1.srcs/
+!Assignment\ 1.srcs/*
 
 
 #test
