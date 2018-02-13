@@ -3,5 +3,4 @@
 
 #except main files
 
-!*.xpr
 !*.vhd
