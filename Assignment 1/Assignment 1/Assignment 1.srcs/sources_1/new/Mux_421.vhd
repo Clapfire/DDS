@@ -67,7 +67,7 @@ begin
         when  "10" => Mux_out <= C;
         when  "11" => Mux_out <= D; 
         -- when others => (others => '0');
-        when others => Mux_out <= A;
+        when others => null;
     end case;
 end process;
 
