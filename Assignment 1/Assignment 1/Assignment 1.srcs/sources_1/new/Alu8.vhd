@@ -70,15 +70,28 @@ COMPONENT MUX_421
         Select_1 : IN STD_LOGIC_VECTOR(1 downto 0));
 end COMPONENT;
 
-signal adder_out_to_mux : STD_LOGIC_VECTOR (7 downto 0);
+signal adderOutToMux : STD_LOGIC_VECTOR (7 downto 0);
 signal logicAndToMux : STD_LOGIC_VECTOR (7 downto 0);
 signal logicOrToMux : STD_LOGIC_VECTOR (7 downto 0);
 signal logicInvToMux : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
-c1 : Adder8 PORT MAP(a => Ain, b => Bin, carryIn => carryIn, carryOut => carryOut, sum => adder_out_to_mux);
-c2 : Logic PORT MAP(a => Ain, b => Bin, AndOut => logicAndToMux, OrOut => logicOrToMux, InvA => logicInvToMux);
-c3 : Mux_421 PORT MAP(a_Mux => adder_out_to_mux, b_Mux => logicAndToMux, c_Mux => logicOrToMux, d_Mux => logicInvToMux, Mux_Out => AluOut, Select_1 => Select_1); 
+c1 : Adder8 PORT MAP(a => Ain, 
+                     b => Bin, 
+                     carryIn => carryIn, 
+                     carryOut => carryOut, 
+                     sum => adderOutToMux);
+c2 : Logic PORT MAP(a => Ain, 
+                    b => Bin, 
+                    AndOut => logicAndToMux, 
+                    OrOut => logicOrToMux, 
+                    InvA => logicInvToMux);
+c3 : Mux_421 PORT MAP(a_Mux => adderOutToMux, 
+                        b_Mux => logicAndToMux, 
+                        c_Mux => logicOrToMux, 
+                        d_Mux => logicInvToMux, 
+                        Mux_Out => AluOut, 
+                        Select_1 => Select_1); 
 
 end Structural;

@@ -4,5 +4,8 @@
 #except main files
 
 !*.vhd
+!*.gitignore
+!Assignment\ 1.srcs/
+
 
 #test
