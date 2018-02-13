@@ -46,8 +46,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 -- */
 
 entity Mux_421 is
-    Port ( Mux_in_from_adder : in STD_LOGIC;
-           a_Mux : in STD_LOGIC_vector (7 downto 0);
+    Port ( a_Mux : in STD_LOGIC_vector (7 downto 0);
            b_Mux : in STD_LOGIC_vector (7 downto 0);
            c_Mux : in STD_LOGIC_vector (7 downto 0);
            d_Mux : in STD_LOGIC_vector (7 downto 0);
