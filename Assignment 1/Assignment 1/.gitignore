@@ -1,1 +1,7 @@
+#ignore everything
+*
 
+#except main files
+
+!*.xpr
+!*.vhd
