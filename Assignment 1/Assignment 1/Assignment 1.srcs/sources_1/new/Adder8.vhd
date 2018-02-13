@@ -50,7 +50,7 @@ Begin
     carry := Carryin;
     for i in 0 to 7 loop
         vsum(i) := (A(i) xor B(i)) xor carry;
-        carry := A(i) and B(i);
+        carry := ((carry and (A(i) xor B(i))) or (A(i) and B(i)));
     end loop;
     
     Carryout <= carry;

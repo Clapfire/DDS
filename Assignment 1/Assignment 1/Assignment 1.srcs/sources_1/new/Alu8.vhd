@@ -35,7 +35,7 @@ entity Alu8 is
     Port ( Ain : in STD_LOGIC_VECTOR (7 downto 0);
            Bin : in STD_LOGIC_VECTOR (7 downto 0);
            AluOut : out STD_LOGIC_VECTOR (7 downto 0);
-           sel : in STD_LOGIC_VECTOR (1 downto 0);
+           Select_1 : in STD_LOGIC_VECTOR (1 downto 0);
            carryIn : in STD_LOGIC;
            carryOut : out STD_LOGIC);
 end Alu8;
@@ -62,23 +62,36 @@ end COMPONENT;
 
 COMPONENT MUX_421
     Port(
-        a : IN STD_LOGIC_VECTOR(7 downto 0); 
-        b : IN STD_LOGIC_VECTOR(7 downto 0);
-        c : IN STD_LOGIC_VECTOR(7 downto 0); 
-        d : IN STD_LOGIC_VECTOR(7 downto 0); 
+        a_Mux : IN STD_LOGIC_VECTOR(7 downto 0); 
+        b_Mux : IN STD_LOGIC_VECTOR(7 downto 0);
+        c_Mux : IN STD_LOGIC_VECTOR(7 downto 0); 
+        d_Mux : IN STD_LOGIC_VECTOR(7 downto 0); 
         Mux_Out : OUT STD_LOGIC_VECTOR(7 downto 0);
-        sel : IN STD_LOGIC_VECTOR(1 downto 0));
+        Select_1 : IN STD_LOGIC_VECTOR(1 downto 0));
 end COMPONENT;
 
-signal adder_out_to_mux : STD_LOGIC_VECTOR (7 downto 0);
+signal adderOutToMux : STD_LOGIC_VECTOR (7 downto 0);
 signal logicAndToMux : STD_LOGIC_VECTOR (7 downto 0);
 signal logicOrToMux : STD_LOGIC_VECTOR (7 downto 0);
 signal logicInvToMux : STD_LOGIC_VECTOR (7 downto 0);
 
 begin
 
-c1 : Adder8 PORT MAP(a => Ain, b => Bin, carryIn => carryIn, carryOut => carryOut, sum => adder_out_to_mux);
-c2 : Logic PORT MAP(a => Ain, b => Bin, AndOut => logicAndToMux, OrOut => logicOrToMux, InvA => logicInvToMux);
-c3 : Mux_421 PORT MAP(a => adder_out_to_mux, b => logicAndToMux, c => logicOrToMux, d => logicInvToMux, Mux_Out => AluOut, sel => sel); 
+c1 : Adder8 PORT MAP(a => Ain, 
+                     b => Bin, 
+                     carryIn => carryIn, 
+                     carryOut => carryOut, 
+                     sum => adderOutToMux);
+c2 : Logic PORT MAP(a => Ain, 
+                    b => Bin, 
+                    AndOut => logicAndToMux, 
+                    OrOut => logicOrToMux, 
+                    InvA => logicInvToMux);
+c3 : Mux_421 PORT MAP(a_Mux => adderOutToMux, 
+                        b_Mux => logicAndToMux, 
+                        c_Mux => logicOrToMux, 
+                        d_Mux => logicInvToMux, 
+                        Mux_Out => AluOut, 
+                        Select_1 => Select_1); 
 
 end Structural;

@@ -43,9 +43,9 @@ architecture Behavioral of Logic is
 
 begin
 
-    Andout <= A and B;
-    Orout <= A or B;
-    InvA <= Not A ;
+    Andout <= (A and B);
+    Orout <= (A or B);
+    InvA <= (Not A) ;
     
 
 end Behavioral;
