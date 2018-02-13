@@ -43,5 +43,20 @@ architecture Behavioral of Adder8 is
 
 begin
 
+Process(A, B, Carryin)
+    variable vsum   : std_logic_vector(7 downto 0);
+    variable carry : std_logic;
+Begin
+    carry := Carryin;
+    for i in 0 to 7 loop
+        vsum(i) := (A(i) xor B(i)) xor carry;
+        carry := A(i) and B(i);
+    end loop;
+    
+    Carryout <= carry;
+       Sum <= vsum;
+end Process;
 
+   
+   
 end Behavioral;

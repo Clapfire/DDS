@@ -3,7 +3,9 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="C:/Users/Madmal/Documents/git projects/DDS/Assignment 1/Assignment 1/Assignment 1.xpr">
+
+<Project Version="7" Minor="35" Path="C:/Users/zeid/Desktop/DDS/DDS/Assignment 1/Assignment 1/Assignment 1.xpr">
+
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="791822f22ad143f7bf3b4c06bf463f7d"/>
