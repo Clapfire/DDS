@@ -47,25 +47,25 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity Mux_421 is
     Port ( Mux_in_from_adder : in STD_LOGIC;
-           A : in STD_LOGIC;
-           B : in STD_LOGIC;
-           C : in STD_LOGIC;
-           D : in STD_LOGIC;
+           a_Mux : in STD_LOGIC_vector (7 downto 0);
+           b_Mux : in STD_LOGIC_vector (7 downto 0);
+           c_Mux : in STD_LOGIC_vector (7 downto 0);
+           d_Mux : in STD_LOGIC_vector (7 downto 0);
            Select_1 : in STD_LOGIC_vector(1 downto 0);
-           Mux_out : out STD_LOGIC); 
+           Mux_out : out STD_LOGIC_vector (7 downto 0));
 end Mux_421;
 
 architecture Behavioral of Mux_421 is
 begin
 
 -- my stuff
-process (Select_1, A, B, C, D)
+process (Select_1, A_Mux, B_Mux, C_Mux, D_Mux)
 begin
     case Select_1 is
-        when  "00" => Mux_out <= A;
-        when  "01" => Mux_out <= B;
-        when  "10" => Mux_out <= C;
-        when  "11" => Mux_out <= D; 
+        when  "00" => Mux_out <= A_Mux;
+        when  "01" => Mux_out <= B_Mux;
+        when  "10" => Mux_out <= C_Mux;
+        when  "11" => Mux_out <= D_Mux; 
         -- when others => (others => '0');
         when others => null;
     end case;
