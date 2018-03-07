@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -41,12 +42,24 @@ end upDownCounter;
 
 architecture Behavioral of upDownCounter is
 
+signal intCount : std_logic_vector(7 downto 0); --internal counter
+
 begin
 
 COUNTER: process (clk)
 begin
-    if (rising_edge(clk) then
-        if (up = '1') then
-            
+    if (rising_edge(clk)) then
+        if (rst = '1') then
+            intCount <= "00000000";
+        else
+            if (up = '1') then
+                intCount <= intCount+1;
+            end if;
+            if (down = '1') then
+                intCount <= intCount-1;
+            end if;
+        end if;
+        cOut <= intCount;
+     end if;
 end process;
 end Behavioral;
