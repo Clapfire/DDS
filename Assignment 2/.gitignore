@@ -1,0 +1,11 @@
+#ignore everything
+*
+
+#except main files
+
+!*.vhd
+!*.gitignore
+!Assignment\ 2.srcs/*
+
+
+#test
