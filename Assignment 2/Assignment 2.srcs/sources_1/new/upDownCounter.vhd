@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity upDownCounter is
     Port ( up : in STD_LOGIC;
-           down : in STD_LOGIC;
+           en : in STD_LOGIC;
            cOut : out STD_LOGIC_VECTOR (7 downto 0);
            rst : in STD_LOGIC;
            clk : in STD_LOGIC);
@@ -49,17 +49,18 @@ begin
 COUNTER: process (clk)
 begin
     if (rising_edge(clk)) then
-        if (rst = '1') then
-            intCount <= "00000000";
-        else
-            if (up = '1') then
-                intCount <= intCount+1;
+        if (en = '1') then
+            if (rst = '1') then
+                intCount <= "00000000";
+            else
+                if (up = '1') then
+                    intCount <= intCount+1;
+                else
+                    intCount <= intCount-1;
+                end if;
             end if;
-            if (down = '1') then
-                intCount <= intCount-1;
-            end if;
+            cOut <= intCount;
         end if;
-        cOut <= intCount;
      end if;
 end process;
 end Behavioral;
