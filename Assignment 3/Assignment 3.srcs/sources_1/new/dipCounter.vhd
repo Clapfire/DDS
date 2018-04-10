@@ -47,15 +47,15 @@ end dipCounter;
 
 architecture Structural of dipCounter is
 
-COMPONENT BitCounter8
+COMPONENT BitCounter12
     Port ( clk : in STD_LOGIC;
        rst : in STD_LOGIC;
-       output : out STD_LOGIC_VECTOR (7 downto 0));
+       output : out STD_LOGIC_VECTOR (11 downto 0));
 end COMPONENT;
 
-COMPONENT BitComparator8
-    Port ( a : in STD_LOGIC_VECTOR (7 downto 0);
-       b : in STD_LOGIC_VECTOR (7 downto 0);
+COMPONENT BitComparator12
+    Port ( a : in STD_LOGIC_VECTOR (11 downto 0);
+       b : in STD_LOGIC_VECTOR (11 downto 0);
        output : out STD_LOGIC;
        rst : out STD_LOGIC
        );
@@ -70,16 +70,16 @@ COMPONENT dipSwitches
        sw5 : in STD_LOGIC;
        sw6 : in STD_LOGIC;
        sw7 : in STD_LOGIC;
-       switches : out STD_LOGIC_VECTOR (7 downto 0));
+       switches : out STD_LOGIC_VECTOR (11 downto 0));
 end COMPONENT;
 
 signal compToRst : STD_LOGIC;
-signal counterToComp : STD_LOGIC_VECTOR(7 downto 0);
-signal switchesOut : STD_LOGIC_VECTOR(7 downto 0);
+signal counterToComp : STD_LOGIC_VECTOR(11 downto 0);
+signal switchesOut : STD_LOGIC_VECTOR(11 downto 0);
 
 begin
 
-c1 : BitCounter8 PORT MAP ( clk => Clk,
+c1 : BitCounter12 PORT MAP ( clk => Clk,
                             rst => compToRst,
                             output => counterToComp
                             );
@@ -93,7 +93,7 @@ c2 : dipSwitches PORT MAP (sw0 => Dip_SW0,
                            sw7 => Dip_SW7,
                            switches => switchesOut
                            );
-c3 : bitComparator8 PORT MAP (
+c3 : bitComparator12 PORT MAP (
                            a => switchesOut,
                            b => counterToComp,
                            output => clkOut,

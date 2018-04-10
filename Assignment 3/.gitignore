@@ -1,0 +1,14 @@
+#ignore everything
+*
+
+#Except:
+!.gitignore
+!*.vhd
+!*.xpr
+
+#Also in subdirectories
+!*/
+
+!*/*.srcs/sim_1/new/*
+!*/*.srcs/sources_1/new/*
+

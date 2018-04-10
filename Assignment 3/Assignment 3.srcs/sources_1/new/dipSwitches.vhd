@@ -40,13 +40,13 @@ entity dipSwitches is
            sw5 : in STD_LOGIC;
            sw6 : in STD_LOGIC;
            sw7 : in STD_LOGIC;
-           switches : out STD_LOGIC_VECTOR (7 downto 0));
+           switches : out STD_LOGIC_VECTOR (11 downto 0));
 end dipSwitches;
 
 architecture Behavioral of dipSwitches is
 
 begin
 
-    switches <= sw0 & sw1 & sw2 & sw3 & sw4 & sw5 & sw6 & sw7;
+    switches <= sw7 & sw6 & sw5 & sw4 & sw3 & sw2 & sw1 & sw0 & '0' & '0' & '0' & '0';
 
 end Behavioral;

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 04/03/2018 09:06:56 AM
+-- Create Date: 04/04/2018 11:32:52 AM
 -- Design Name: 
--- Module Name: 8BitComparator - Behavioral
+-- Module Name: BitCounter5 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -32,18 +32,24 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity BitComparator12 is
-    Port ( a : in STD_LOGIC_VECTOR (11 downto 0);
-           b : in STD_LOGIC_VECTOR (11 downto 0);
-           output : out STD_LOGIC;
-           rst : out STD_LOGIC);
-end BitComparator12;
+entity BitCounter5 is
+    Port ( clk : in STD_LOGIC;
+           output : out STD_LOGIC_VECTOR (4 downto 0));
+end BitCounter5;
 
-architecture Behavioral of BitComparator12 is
+architecture Behavioral of BitCounter5 is
+
+signal count : std_logic_vector(4 downto 0);
 
 begin
 
-    output <= '1' when a = b else '0';
-    rst <= '1' when a = b else '0';
+Process(clk)
 
+Begin
+    if (rising_edge(clk)) then
+        count <= count + 1;
+    end if;
+end process;
+
+    output <= count;
 end Behavioral;

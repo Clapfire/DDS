@@ -33,15 +33,15 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity BitCounter8 is
+entity BitCounter12 is
     Port ( clk : in STD_LOGIC;
            rst : in STD_LOGIC;
-           output : out STD_LOGIC_VECTOR (7 downto 0));
-end BitCounter8;
+           output : out STD_LOGIC_VECTOR (11 downto 0));
+end BitCounter12;
 
-architecture Behavioral of BitCounter8 is
+architecture Behavioral of BitCounter12 is
 
-signal count : std_logic_vector(7 downto 0);
+signal count : std_logic_vector(11 downto 0);
 
 begin
 
@@ -50,7 +50,7 @@ Process(clk, rst)
 Begin
     if(rst = '1')
     then
-        count <= "00000000";
+        count <= "000000000000";
     elsif (rising_edge(clk)) then
         count <= count + 1;
     end if;
