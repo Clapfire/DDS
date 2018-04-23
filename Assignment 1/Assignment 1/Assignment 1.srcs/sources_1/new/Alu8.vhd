@@ -31,16 +31,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Alu8 is
+entity alu8 is
     Port ( Ain : in STD_LOGIC_VECTOR (7 downto 0);
            Bin : in STD_LOGIC_VECTOR (7 downto 0);
            AluOut : out STD_LOGIC_VECTOR (7 downto 0);
            Select_1 : in STD_LOGIC_VECTOR (1 downto 0);
            carryIn : in STD_LOGIC;
            carryOut : out STD_LOGIC);
-end Alu8;
+end alu8;
 
-architecture Structural of Alu8 is
+architecture Structural of alu8 is
 
 COMPONENT Adder8    
     Port(
