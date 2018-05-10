@@ -66,6 +66,8 @@ calculation : process(clk) begin
         
         if(window = "0000") then
         sum <= "000000000000";
+        sum_divided := unsigned(sum);
+        
         elsif(window = "0001") then
             for I in 0 to 1 loop
                 sum <= sum + std_logic_vector(values(I));

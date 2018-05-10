@@ -53,6 +53,7 @@ counter_proc : process(clk, rst) begin
                     end if;
                end process;
 address <= counter;
+
 rst_proc : process(clk) begin
                 if(falling_edge(clk))then
                     if(counter = input) then
