@@ -33,13 +33,14 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity rom is
     Port ( adr : in STD_LOGIC_VECTOR (4 downto 0);
+           clk : in STD_LOGIC;
            output : out STD_LOGIC_VECTOR (7 downto 0));
 end rom;
 
 architecture Behavioral of rom is
 
 begin
-    process(adr)
+    process(clk)
     type rom_type is array(0 to 31) of std_logic_vector(7 downto 0);
         variable rom_array_sine : rom_type := (x"80", x"98", x"B0", x"C6", x"D9", x"E9", x"F5", x"FC", 
                                           x"FF", x"FC", x"F5", x"E9", x"D9", x"C6", x"B0", x"98", 
@@ -56,7 +57,9 @@ begin
                                                    x"80", x"87", x"8F", x"97", x"9F", x"A7", x"AF", x"B7", 
                                                    x"BF", x"C7", x"CF", x"D7", x"DF", x"E7", x"EF", x"F7"); 
     begin
-        output <= rom_array_sine(conv_integer(adr));
+        if(falling_edge(clk)) then
+            output <= rom_array_sine(conv_integer(adr));
+        end if;
     end process;
 
 end Behavioral;
