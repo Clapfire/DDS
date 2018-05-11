@@ -56,9 +56,13 @@ begin
                                                    x"40", x"48", x"50", x"58", x"60", x"68", x"70", x"78", 
                                                    x"80", x"87", x"8F", x"97", x"9F", x"A7", x"AF", x"B7", 
                                                    x"BF", x"C7", x"CF", x"D7", x"DF", x"E7", x"EF", x"F7"); 
+        variable rom_array_noisy_sine : rom_type := (x"87", x"92", x"C7", x"BD", x"F1", x"F6", x"EF", x"EB", 
+                                                  x"FF", x"E8", x"E7", x"E0", x"CB", x"DD", x"AE", x"80", 
+                                                  x"86", x"6F", x"65", x"31", x"39", x"01", x"0A", x"00", 
+                                                  x"00", x"00", x"01", x"18", x"2C", x"44", x"5B", x"52"); 
     begin
         if(falling_edge(clk)) then
-            output <= rom_array_sine(conv_integer(adr));
+            output <= rom_array_noisy_sine(conv_integer(adr));
         end if;
     end process;
 

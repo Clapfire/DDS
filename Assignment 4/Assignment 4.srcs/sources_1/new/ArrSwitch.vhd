@@ -36,23 +36,22 @@ entity ArrSwitch is
            sw5 : in STD_LOGIC;
            sw6 : in STD_LOGIC;
            sw7 : in STD_LOGIC;
-           clk : in STD_LOGIC;
            switches : out STD_LOGIC_VECTOR (3 downto 0));
 end ArrSwitch;
 
 architecture Behavioral of ArrSwitch is
 
 begin
-process (clk)
+process (sw4, sw5, sw6, sw7)
 begin
-    if(rising_edge(clk)) then
-        if (sw4 = '1') then switches <= "0001";
-        elsif (sw5 = '1') then switches <= "0011";
-            elsif (sw6 = '1')then switches <= "0111";
-                elsif (sw7 = '1') then switches <= "1111";
+    --if(rising_edge(clk)) then
+        if (sw4 = '1') then switches <= "0001"; --1
+        elsif (sw5 = '1') then switches <= "0011"; --3
+            elsif (sw6 = '1')then switches <= "0111"; --7
+                elsif (sw7 = '1') then switches <= "1111"; --15
                     else switches <= "0000";
         end if;
-    end if;
+    --end if;
 end process;
        
 end Behavioral;

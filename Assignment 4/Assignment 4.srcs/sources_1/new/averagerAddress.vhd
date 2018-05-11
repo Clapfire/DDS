@@ -36,6 +36,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity averagerAddress is
     Port ( input : in STD_LOGIC_VECTOR (3 downto 0);
            clk : in STD_LOGIC;
+           g_rst : in STD_LOGIC;
            address : out STD_LOGIC_VECTOR (3 downto 0));
 end averagerAddress;
 
@@ -45,14 +46,16 @@ signal rst : std_logic;
 
 
 begin
-counter_proc : process(clk, rst) begin
-                    if(rst = '1') then
+counter_proc : process(clk, rst, g_rst) begin
+                    if(rst = '1' or g_rst = '1') then
                         counter <= "0000";
                     elsif(rising_edge(clk)) then
                         counter <= counter + 1;
                     end if;
                end process;
+               
 address <= counter;
+
 rst_proc : process(clk) begin
                 if(falling_edge(clk))then
                     if(counter = input) then
