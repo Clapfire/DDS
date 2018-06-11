@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date             : Fri May 11 15:26:47 2018
-| Host             : DESKTOP-DHRBTQ5 running 64-bit major release  (build 9200)
+| Date             : Mon Jun 11 13:15:58 2018
+| Host             : DESKTOP-4PILJD1 running 64-bit major release  (build 9200)
 | Command          : report_power -file pwm_generator_power_routed.rpt -pb pwm_generator_power_summary_routed.pb -rpx pwm_generator_power_routed.rpx
 | Design           : pwm_generator
 | Device           : xc7z020clg484-1
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+---------------------------------+
-| Total On-Chip Power (W)  | 6.408 (Junction temp exceeded!) |
-| Design Power Budget (W)  | Unspecified*                    |
-| Power Budget Margin (W)  | NA                              |
-| Dynamic (W)              | 5.924                           |
-| Device Static (W)        | 0.484                           |
-| Effective TJA (C/W)      | 11.5                            |
-| Max Ambient (C)          | 11.1                            |
-| Junction Temperature (C) | 98.9                            |
-| Confidence Level         | Low                             |
-| Setting File             | ---                             |
-| Simulation Activity File | ---                             |
-| Design Nets Matched      | NA                              |
-+--------------------------+---------------------------------+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 10.795 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                     |
+| Power Budget Margin (W)  | NA                               |
+| Dynamic (W)              | 9.755                            |
+| Device Static (W)        | 1.041                            |
+| Effective TJA (C/W)      | 11.5                             |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 125.0                            |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     1.393 |      221 |       --- |             --- |
-|   LUT as Logic |     1.306 |       77 |     53200 |            0.14 |
-|   Register     |     0.053 |       85 |    106400 |            0.08 |
-|   CARRY4       |     0.028 |        9 |     13300 |            0.07 |
+| Slice Logic    |     3.431 |      599 |       --- |             --- |
+|   LUT as Logic |     3.229 |      327 |     53200 |            0.61 |
+|   CARRY4       |     0.141 |       30 |     13300 |            0.23 |
+|   Register     |     0.055 |      191 |    106400 |            0.18 |
 |   BUFG         |     0.006 |        2 |        32 |            6.25 |
-|   Others       |     0.000 |       14 |       --- |             --- |
-| Signals        |     0.924 |      137 |       --- |             --- |
-| I/O            |     3.607 |        8 |       200 |            4.00 |
-| Static Power   |     0.484 |          |           |                 |
-| Total          |     6.408 |          |           |                 |
+|   Others       |     0.000 |       16 |       --- |             --- |
+| Signals        |     3.080 |      472 |       --- |             --- |
+| I/O            |     3.243 |       12 |       200 |            6.00 |
+| Static Power   |     1.041 |          |           |                 |
+| Total          |    10.795 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,20 +71,20 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     2.463 |       2.337 |      0.126 |
-| Vccaux    |       1.800 |     0.184 |       0.131 |      0.053 |
-| Vcco33    |       3.300 |     1.016 |       1.015 |      0.001 |
+| Vccint    |       1.000 |     6.846 |       6.548 |      0.299 |
+| Vccaux    |       1.800 |     0.217 |       0.118 |      0.100 |
+| Vcco33    |       3.300 |     0.909 |       0.908 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.009 |       0.000 |      0.009 |
+| Vccbram   |       1.000 |     0.026 |       0.000 |      0.026 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.190 |       0.000 |      0.190 |
+| Vccpint   |       1.000 |     0.473 |       0.000 |      0.473 |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -145,15 +145,16 @@ Table of Contents
 +-----------------+-----------+
 | Name            | Power (W) |
 +-----------------+-----------+
-| pwm_generator   |     5.924 |
-|   average_mem   |     1.649 |
+| pwm_generator   |     9.755 |
+|   average_mem   |     4.965 |
 |   count_5       |     0.216 |
-|   dip_count_0_3 |     0.062 |
-|     c1          |     0.062 |
+|   dip_count_0_3 |     0.072 |
+|     c1          |     0.072 |
 |     c3          |    <0.001 |
-|   pwm1          |     0.156 |
-|   pwm2          |     0.014 |
-|   rom1          |     0.195 |
+|   dip_count_4_7 |     0.255 |
+|   pwm1          |     0.242 |
+|   pwm2          |     0.043 |
+|   rom1          |     0.667 |
 +-----------------+-----------+
 
 

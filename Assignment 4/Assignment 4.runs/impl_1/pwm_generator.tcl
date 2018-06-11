@@ -60,7 +60,6 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 
@@ -68,10 +67,9 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param synth.incrementalSynthesisCache {C:/Users/zeid/Desktop/Git/DDS/DDS/Assignment 4/.Xil/Vivado-4376-DESKTOP-DHRBTQ5/incrSyn}
-  set_param xicom.use_bs_reader 1
+  set_param synth.incrementalSynthesisCache {D:/SDU/4th Semester/DDS/Assignment 4/.Xil/Vivado-220-DESKTOP-4PILJD1/incrSyn}
   open_checkpoint pwm_generator_routed.dcp
-  set_property webtalk.parent_dir {C:/Users/zeid/Desktop/Git/DDS/DDS/Assignment 4/Assignment 4.cache/wt} [current_project]
+  set_property webtalk.parent_dir {D:/SDU/4th Semester/DDS/Assignment 4/Assignment 4.cache/wt} [current_project]
   catch { write_mem_info -force pwm_generator.mmi }
   write_bitstream -force pwm_generator.bit 
   catch {write_debug_probes -quiet -force pwm_generator}

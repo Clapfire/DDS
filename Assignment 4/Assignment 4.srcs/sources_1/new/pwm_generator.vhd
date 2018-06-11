@@ -39,10 +39,10 @@ entity pwm_generator is
            Dip_SW1 : in STD_LOGIC;
            Dip_SW2 : in STD_LOGIC;
            Dip_SW3 : in STD_LOGIC;
-           --Dip_SW4 : in STD_LOGIC;
-           --Dip_SW5 : in STD_LOGIC;
-           --Dip_SW6 : in STD_LOGIC;
-           --Dip_SW7 : in STD_LOGIC;
+           Dip_SW4 : in STD_LOGIC;
+           Dip_SW5 : in STD_LOGIC;
+           Dip_SW6 : in STD_LOGIC;
+           Dip_SW7 : in STD_LOGIC;
            g_rst : in STD_LOGIC;
            pwm_output : out STD_LOGIC;
            pwm_output2 : out STD_LOGIC
@@ -61,19 +61,20 @@ component dipCounter
        );
 end component;
 
---component ArrSwitch
-  --  Port (sw4 : in STD_LOGIC;
-    --   sw5 : in STD_LOGIC;
-      -- sw6 : in STD_LOGIC;
-       --sw7 : in STD_LOGIC;
-       --switches : out STD_LOGIC_VECTOR(3 downto 0)
-       --);
---end component;
+component ArrSwitch
+    Port (sw4 : in STD_LOGIC;
+       sw5 : in STD_LOGIC;
+       sw6 : in STD_LOGIC;
+       sw7 : in STD_LOGIC;
+       clk : in STD_LOGIC;
+       switches : out STD_LOGIC_VECTOR(3 downto 0)
+       );
+end component;
 
 component mem_average
     Port ( dataIn : in STD_LOGIC_VECTOR(7 downto 0);
            --writeAdr : in STD_LOGIC_VECTOR (3 downto 0);
-           --window : in STD_LOGIC_VECTOR (3 downto 0);
+           window : in STD_LOGIC_VECTOR (3 downto 0);
            clk : in STD_LOGIC;
            rst : in STD_LOGIC;
            dataOut : out STD_LOGIC_VECTOR(7 downto 0)
@@ -126,16 +127,17 @@ dip_count_0_3 : dipCounter port map(Dip_SW0 => Dip_SW0,
                                 clkout => dip_to_5_bit_counter
                                 );
                                 
---dip_count_4_7 : Arrswitch port map(sw4 => Dip_SW4,
-  --                              sw5 => Dip_SW5,
-    --                            sw6 => Dip_SW6,
-      --                          sw7 => Dip_SW7,
-        --                        switches => arraySwitches
-          --                      );
+dip_count_4_7 : Arrswitch port map(sw4 => Dip_SW4,
+                                sw5 => Dip_SW5,
+                                sw6 => Dip_SW6,
+                                sw7 => Dip_SW7,
+                                clk => Clk,
+                                switches => arraySwitches
+                                );
                                 
 average_mem : mem_average port map(dataIn => rom_output,
                                 --writeAdr => averageAdr,
-                                --window => arraySwitches,
+                                window => arraySwitches,
                                 clk => dip_to_5_bit_counter,
                                 --dataIn => rom_output,
                                 rst => g_rst,

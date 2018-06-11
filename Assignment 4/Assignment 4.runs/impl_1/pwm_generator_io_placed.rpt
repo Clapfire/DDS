@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date                      : Fri May 11 15:25:59 2018
-| Host                      : DESKTOP-DHRBTQ5 running 64-bit major release  (build 9200)
+| Date                      : Mon Jun 11 13:15:20 2018
+| Host                      : DESKTOP-4PILJD1 running 64-bit major release  (build 9200)
 | Command                   : report_io -file pwm_generator_io_placed.rpt
 | Design                    : pwm_generator
 | Device                    : xc7z020
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|             8 |
+|            12 |
 +---------------+
 
 
@@ -249,9 +249,9 @@ Table of Contents
 | H14        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | H15        |             | High Range | IO_0_34                 | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | H16        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| H17        |             | High Range | IO_0_35                 | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| H18        |             | High Range | IO_25_35                | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| H19        |             | High Range | IO_L19P_T3_35           | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| H17        | Dip_SW6     | High Range | IO_0_35                 | INPUT       | LVCMOS18    |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| H18        | Dip_SW5     | High Range | IO_25_35                | INPUT       | LVCMOS18    |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| H19        | Dip_SW4     | High Range | IO_L19P_T3_35           | INPUT       | LVCMOS18    |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | H20        |             | High Range | IO_L19N_T3_VREF_35      | User IO     |             |      35 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | H21        |             | High Range | VCCO_35                 | VCCO        |             |      35 |            |      |                     |                      |    1.80 |            |           |          |      |                  |              |                   |              |
 | H22        | Dip_SW2     | High Range | IO_L24P_T3_AD15P_35     | INPUT       | LVCMOS18    |      35 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
@@ -335,7 +335,7 @@ Table of Contents
 | M12        |             | Dedicated  | VN_0                    | XADC        |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M13        |             |            | VCCINT                  | VCCINT      |             |         |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M14        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| M15        |             | High Range | IO_L6P_T0_34            | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| M15        | Dip_SW7     | High Range | IO_L6P_T0_34            | INPUT       | LVCMOS18    |      34 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | M16        |             | High Range | IO_L6N_T0_VREF_34       | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M17        |             | High Range | IO_L4N_T0_34            | User IO     |             |      34 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | M18        |             |            | GND                     | GND         |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |

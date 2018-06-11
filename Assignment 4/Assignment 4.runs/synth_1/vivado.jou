@@ -2,11 +2,11 @@
 # Vivado v2018.1 (64-bit)
 # SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
 # IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
-# Start of session at: Fri May 11 15:23:42 2018
-# Process ID: 10868
-# Current directory: C:/Users/zeid/Desktop/Git/DDS/DDS/Assignment 4/Assignment 4.runs/synth_1
+# Start of session at: Mon Jun 11 13:13:36 2018
+# Process ID: 4560
+# Current directory: D:/SDU/4th Semester/DDS/Assignment 4/Assignment 4.runs/synth_1
 # Command line: vivado.exe -log pwm_generator.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pwm_generator.tcl
-# Log file: C:/Users/zeid/Desktop/Git/DDS/DDS/Assignment 4/Assignment 4.runs/synth_1/pwm_generator.vds
-# Journal file: C:/Users/zeid/Desktop/Git/DDS/DDS/Assignment 4/Assignment 4.runs/synth_1\vivado.jou
+# Log file: D:/SDU/4th Semester/DDS/Assignment 4/Assignment 4.runs/synth_1/pwm_generator.vds
+# Journal file: D:/SDU/4th Semester/DDS/Assignment 4/Assignment 4.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source pwm_generator.tcl -notrace
