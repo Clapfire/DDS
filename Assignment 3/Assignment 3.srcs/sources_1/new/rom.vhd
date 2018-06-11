@@ -56,7 +56,7 @@ begin
                                                    x"80", x"87", x"8F", x"97", x"9F", x"A7", x"AF", x"B7", 
                                                    x"BF", x"C7", x"CF", x"D7", x"DF", x"E7", x"EF", x"F7"); 
     begin
-        output <= rom_array_sawtooth(conv_integer(adr));
+        output <= rom_array(conv_integer(adr));
     end process;
 
 end Behavioral;
