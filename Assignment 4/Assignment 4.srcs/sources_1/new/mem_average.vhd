@@ -47,6 +47,7 @@ architecture Behavioral of mem_average is
 
     type rom is array(0 to 15) of std_logic_vector(7 downto 0);
     signal sum : std_logic_vector(11 downto 0);
+    signal sum16 : std_logic_vector(19 downto 0);
     shared variable values : rom;
     signal counter : std_logic_vector(3 downto 0);
 begin
@@ -68,20 +69,20 @@ calculation : process(clk, rst) begin
         
         if(window(3) = '1') then
         
-            sum <= ("0000" & values(0)) + ("0000" & values(1)) + ("0000" & values(2)) + ("0000" & values(3))
-                + ("0000" & values(4)) + ("0000" & values(5)) + ("0000" & values(6)) + ("0000" & values(7))
-                + ("0000" & values(8)) + ("0000" & values(9)) + ("0000" & values(10)) + ("0000" & values(11))
-                + ("0000" & values(12)) + ("0000" & values(13)) + ("0000" & values(14)) + ("0000" & values(15));
-            dataOut <= sum(11 downto 4);
+            sum16 <= ("0000" & std_logic_vector((unsigned(values(0))*82) srl 10)) + ("0000" & std_logic_vector((unsigned(values(1))*92) srl 10)) + ("0000" & std_logic_vector((unsigned(values(2))*123) srl 10)) + ("0000" & std_logic_vector((unsigned(values(3))*172) srl 10))
+                + ("0000" & std_logic_vector((unsigned(values(4))*238) srl 10)) + ("0000" & std_logic_vector((unsigned(values(5))*317) srl 10)) + ("0000" & std_logic_vector((unsigned(values(6))*407) srl 10)) + ("0000" & std_logic_vector((unsigned(values(7))*504) srl 10))
+                + ("0000" & std_logic_vector((unsigned(values(8))*602) srl 10)) + ("0000" & std_logic_vector((unsigned(values(9))*699) srl 10)) + ("0000" & std_logic_vector((unsigned(values(10))*788) srl 10)) + ("0000" & std_logic_vector((unsigned(values(11))*868) srl 10))
+                + ("0000" & std_logic_vector((unsigned(values(12))*934) srl 10)) + ("0000" & std_logic_vector((unsigned(values(13))*983) srl 10)) + ("0000" & std_logic_vector((unsigned(values(14))*1014) srl 10)) + ("0000" & std_logic_vector((unsigned(values(15))*1024) srl 10));
+            dataOut <= sum16(10 downto 3);
             
         elsif(window(2) = '1') then
             if(counter = "1000") then
                 counter <= "0000";
             end if;
             
-            sum <= ("0000" & values(0)) + ("0000" & values(1)) + ("0000" & values(2)) + ("0000" & values(3))
-                + ("0000" & values(4)) + ("0000" & values(5)) + ("0000" & values(6)) + ("0000" & values(7));
-            dataOut <= sum(10 downto 3);
+            sum16 <= ("0000" & std_logic_vector((unsigned(values(0))*82) srl 10)) + ("0000" & std_logic_vector((unsigned(values(1))*129) srl 10)) + ("0000" & std_logic_vector((unsigned(values(2))*259) srl 10)) + ("0000" & std_logic_vector((unsigned(values(3))*448) srl 10))
+                + ("0000" & std_logic_vector((unsigned(values(4))*658) srl 10)) + ("0000" & std_logic_vector((unsigned(values(5))*847) srl 10)) + ("0000" & std_logic_vector((unsigned(values(6))*977) srl 10)) + ("0000" & std_logic_vector((unsigned(values(7))*1024) srl 10));
+            dataOut <= sum16(9 downto 2);
             
         elsif(window(1) = '1') then
             if(counter = "0100") then
