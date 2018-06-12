@@ -167,6 +167,8 @@ component SelMux
 end component;
 
 -- signalss 
+signal carry: std_logic;
+
 signal loadA: std_logic;
 signal loadB: std_logic;
 signal loadC: std_logic;
@@ -187,8 +189,8 @@ signal alu_func: Std_logic_vector (1 downto 0);
 signal input : STD_LOGIC_VECTOR (7 downto 0);
 
 signal sellin: std_logic;
-signal carry: std_logic;
-signal carryin : std_logic;
+signal carryout2: std_logic;
+
 -- end signals 
 
 begin
@@ -196,7 +198,7 @@ begin
 
 
 alu8_1: Alu8 port map
-(ain => a, bin => b, carryin => carryin, aluout => aluout, select_1 => alu_func, carryout => carry);
+(ain => a, bin => b, aluout => aluout, select_1 => alu_func, carryin => carry, carryout => carryout2);
 -- carryin => carry
 
 
@@ -222,7 +224,7 @@ RegD_1: RegD port map
 progamasm_1: programasm port map
 (loada => loada, loadb => loadb, loadc => loadC, loadD => loadD, clk => clk, Reset => rst, selA => selA, selb => selB, alufunc => alu_func,
  selinput => sellin, 
- --carry => carryout, 
+ carry => carry, 
  stateout => stateout, pc_extra => pc_extra, ASM_input_extra => ASM_input_extra);
 
 sel_in_1: selmux port map
@@ -232,6 +234,8 @@ output <= aluout;
 carryout <= carry;
 outA <= a;
 outB <= B;
+
+OutINput <= input;
 
 oregOutA <= regOutA;
 oregOutB <= regOutB;
