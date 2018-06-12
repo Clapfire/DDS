@@ -113,9 +113,9 @@ clk => clk);
 clock_process :process
 begin
 clk <= '0';
-wait for 10 ns;
+wait for 100 ns;
 clk <= '1';
-wait for 10 ns;
+wait for 100 ns;
 end process;
  -- Stimulus process, this is where you define a sequence of input signals for the simulation. All signals mustbe defined.
 stim_proc: process

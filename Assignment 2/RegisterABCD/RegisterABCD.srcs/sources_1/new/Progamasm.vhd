@@ -139,7 +139,7 @@ begin
                          LoadB <= '0';
                          LoadC <= '1';
                          LoadD <= '0';
-                         SelA <= "11"; -- Creg on output A
+                         SelA <= "10"; -- Creg on output A
                          SelB <= "00"; -- Areg on putput B - but not used
                          AluFunc <= "11"; -- Not A
                          Carry <= '0'; 
