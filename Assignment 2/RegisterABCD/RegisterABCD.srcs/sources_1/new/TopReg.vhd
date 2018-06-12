@@ -150,7 +150,7 @@ component Alu8
            Bin : in STD_LOGIC_VECTOR (7 downto 0);
            AluOut : out STD_LOGIC_VECTOR (7 downto 0);
            select_1 : in STD_LOGIC_VECTOR (1 downto 0);
---           carryIn : in STD_LOGIC;
+           carryIn : in STD_LOGIC;
            carryOut : out STD_LOGIC
 );
 end component;
@@ -188,7 +188,7 @@ signal input : STD_LOGIC_VECTOR (7 downto 0);
 
 signal sellin: std_logic;
 signal carry: std_logic;
-
+signal carryin : std_logic;
 -- end signals 
 
 begin
@@ -196,7 +196,7 @@ begin
 
 
 alu8_1: Alu8 port map
-(ain => a, bin => b, aluout => aluout, select_1 => alu_func, carryout => carry);
+(ain => a, bin => b, carryin => carryin, aluout => aluout, select_1 => alu_func, carryout => carry);
 -- carryin => carry
 
 
