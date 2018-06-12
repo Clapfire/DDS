@@ -45,7 +45,7 @@ begin
 
     Andout <= (A and B);
     Orout <= (A or B);
-    InvA <= A XOR "11111111" ;
+    InvA <= A XOR "11111111";
     
 
 end Behavioral;

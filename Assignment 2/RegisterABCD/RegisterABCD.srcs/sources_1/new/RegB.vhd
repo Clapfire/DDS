@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 02/13/2018 10:39:03 AM
+-- Create Date: 06/11/2018 09:00:06 AM
 -- Design Name: 
--- Module Name: Logic - Behavioral
+-- Module Name: RegC - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,21 +31,33 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Logic is
-    Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
-           B : in STD_LOGIC_VECTOR (7 downto 0);
-           Andout : out STD_LOGIC_VECTOR (7 downto 0);
-           Orout : out STD_LOGIC_VECTOR (7 downto 0);
-           InvA : out STD_LOGIC_VECTOR (7 downto 0));
-end Logic;
+entity RegB is
+Port ( 
+    Clk:            in  std_logic;
+    rst:            in  std_logic;
+    input:         in  std_logic_vector (7 downto 0);
+    LoadB:          in  std_logic;
+    RegOutB:        out std_logic_vector (7 downto 0)
+);
+end RegB;
 
-architecture Behavioral of Logic is
+architecture Behavioral of RegB is
+
+signal RegB: std_logic_vector (7 downto 0);
+
 
 begin
 
-    Andout <= (A and B);
-    Orout <= (A or B);
-    InvA <= A XOR "11111111" ;
-    
+Reg_process: process (clk)
+begin
+    if (rising_edge(clk)) then
+        if (loadB = '1') then
+            RegB <= input;
+        end if; --loadA    
+    end if; --clk
+end process; -- reg_process
+
+RegOutB <= regB;
+
 
 end Behavioral;

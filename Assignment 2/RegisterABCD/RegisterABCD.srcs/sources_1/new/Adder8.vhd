@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 02/13/2018 10:39:03 AM
+-- Create Date: 02/13/2018 10:23:25 AM
 -- Design Name: 
--- Module Name: Logic - Behavioral
+-- Module Name: Adder8 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,21 +31,32 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Logic is
+entity Adder8 is
     Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
            B : in STD_LOGIC_VECTOR (7 downto 0);
-           Andout : out STD_LOGIC_VECTOR (7 downto 0);
-           Orout : out STD_LOGIC_VECTOR (7 downto 0);
-           InvA : out STD_LOGIC_VECTOR (7 downto 0));
-end Logic;
+           Sum : out STD_LOGIC_VECTOR (7 downto 0);
+           Carryin : in STD_LOGIC;
+           Carryout : out STD_LOGIC);
+end Adder8;
 
-architecture Behavioral of Logic is
+architecture Behavioral of Adder8 is
 
 begin
 
-    Andout <= (A and B);
-    Orout <= (A or B);
-    InvA <= A XOR "11111111" ;
+Process(A, B, Carryin)
+    variable vsum   : std_logic_vector(7 downto 0);
+    variable carry : std_logic;
+Begin
+    carry := Carryin;
+    for i in 0 to 7 loop
+        vsum(i) := (A(i) xor B(i)) xor carry;
+        carry := ((carry and (A(i) xor B(i))) or (A(i) and B(i)));
+    end loop;
     
+    Carryout <= carry;
+       Sum <= vsum;
+end Process;
 
+   
+   
 end Behavioral;

@@ -66,19 +66,22 @@ UUT: alu8 PORT MAP (Ain => Ain,
 stim_proc: process
     begin
         wait for 10 ns;
-        Ain <= "00001111";
-        Bin <= "01010101";
+        Ain <= "11111111";
+        Bin <= "00000000";
         carryin <= '1';
-        wait for 10 ns;
+        wait for 100 ns;
+        
+        Select_1 <= "00";
+        wait for 100 ns;
         
         Select_1 <= "01";
-        wait for 10 ns;
+        wait for 100 ns;
         
         Select_1 <= "10";
-        wait for 10 ns;
+        wait for 100 ns;
         
         Select_1 <= "11";
-        wait for 10 ns;
+        wait for 100 ns;
         
                      
     end process;

@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 02/13/2018 10:39:03 AM
+-- Create Date: 06/11/2018 12:58:01 PM
 -- Design Name: 
--- Module Name: Logic - Behavioral
+-- Module Name: SelMux - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,21 +31,32 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Logic is
-    Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
-           B : in STD_LOGIC_VECTOR (7 downto 0);
-           Andout : out STD_LOGIC_VECTOR (7 downto 0);
-           Orout : out STD_LOGIC_VECTOR (7 downto 0);
-           InvA : out STD_LOGIC_VECTOR (7 downto 0));
-end Logic;
+entity SelMux is
+  Port (
+        clk:    in std_logic;
+        rst:    in std_logic;
+        Out_input: in std_logic_vector (7 downto 0);
+        Alu_out:    in std_logic_vector (7 downto 0);
+        input:      out std_logic_vector (7 downto 0);
+        sellin: in std_logic
+        
+  );
+end SelMux;
 
-architecture Behavioral of Logic is
+architecture Behavioral of SelMux is
 
 begin
 
-    Andout <= (A and B);
-    Orout <= (A or B);
-    InvA <= A XOR "11111111" ;
-    
 
+
+my: Process (sellin)
+begin
+--if (rising_edge(clk)) then
+    if (sellin = '1') then
+        input <= out_input;
+    else
+        input <= Alu_out;
+    end if; --end sellIN
+--end if; -- clk
+end process; --selin
 end Behavioral;
