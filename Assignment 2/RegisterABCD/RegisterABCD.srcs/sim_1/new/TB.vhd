@@ -67,7 +67,7 @@ Port (
 
 end component;
 
-signal out_input : STD_LOGIC_VECTOR (7 downto 0) := "00010011";
+signal out_input : STD_LOGIC_VECTOR (7 downto 0) := "00001111";
 signal rst : std_logic := '0';
 signal clk : std_logic;
         --out

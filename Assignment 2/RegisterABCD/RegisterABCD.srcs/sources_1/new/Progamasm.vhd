@@ -127,7 +127,7 @@ begin
                          LoadB <= '0';
                          LoadC <= '0';
                          LoadD <= '0';
-                         SelA <= "00"; -- Areg on output A
+                         SelA <= "10"; -- Areg on output A
                          SelB <= "00"; -- Areg on putput B
                          AluFunc <= "00";
                          Carry <= '0'; 
